@@ -32,6 +32,16 @@ body {
     width: 44px;
     filter: invert();
     float: left;
-    margin-left: 10px; /* Adicione margem esquerda para afastar a imagem do canto esquerdo */
+    margin-left: 10px; 
     margin-right: 10px;
+  }
+
+  footer {
+    background-color: black; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
   }
