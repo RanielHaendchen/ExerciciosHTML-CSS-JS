@@ -1,0 +1,8 @@
+document.write ("<nav class='topnav'>")
+document.write  ("<img src='./imagens/pngwing.com.png' alt='Logotipo'>")
+document.write  ("<li><a class='ativo' href='./index.html'>Home</a></li>")
+document.write  ("<li><a href='./idade.html'>Checar Idade</a></li>")
+document.write  ("<li><a href='./notas.html'>Checar Média</a></li>")
+document.write  ("<li><a href='./IMC.html'>Checar IMC</a></li>")
+document.write  ("<li><a href='./aumento-salario.html'>Checar Aumento De Salário</a></li>")
+document.write("</nav>")
