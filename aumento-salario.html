@@ -4,12 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <title>Checar Aumento</title>
+
+    <style>
+            label{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+        }
+
+        .caixa{
+            text-align: center;
+            padding: 100px;
+            padding-top: 25px;
+            padding-bottom: 75px;
+            border: 1px;
+            border-radius: 10px;
+            background-color: gray;
+            max-height: 210px;
+        }
+
+        button{
+            margin-top: 20px;
+        }
+        
+
+    </style>
 </head>
 <body>
     <nav>
         <script src="./scripts/navbar-aumento.js"></script>
     </nav>
+
+    <div class="container">
+        <div class="caixa">
+            <H2>Checar Aumento</H2>
+
+            <label for="salario">Digite seu salário:</label>
+            <input type="number" id="salario" placeholder="Salário">
+
+            <label for="cargo">Cargo:</label>
+            <select id="cargo">
+                <option value="GERENTE">Gerente</option>
+                <option value="SUPERVISOR">Supervisor</option>
+                <option value="OPERADOR">Operador</option>
+                <option value="OUTROS">Outros</option>
+            </select>
+            <br>
+            
+            <button onclick="verificar()">Verificar Aumento</button>
+            <p id="resultado"></p>
+        </div>
+    </div>
+    
+    <script>
+        function verificar(){
+            var salario = parseFloat(document.getElementById("salario").value);
+            var cargo = String(document.getElementById("cargo").value);
+
+            var percentual
+
+            if(cargo == "GERENTE"){
+                percentual = 1.05;
+            }
+            else if(cargo == "SUPERVISOR")
+                percentual = 1.08;
+            
+            else if(cargo == "OPERADOR"){
+                percentual = 1.09;
+            }
+            else if(cargo == "OUTROS"){
+                percentual = 1.10;
+            }
+
+            var novoSalario = salario * percentual;
+            
+            document.getElementById("resultado").innerHTML = "Novo salário: " + novoSalario.toFixed(2);
+        }
+    </script>
 
     <footer>
         <script src="./scripts/footer.js"></script>
