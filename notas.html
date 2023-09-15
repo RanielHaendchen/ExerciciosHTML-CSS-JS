@@ -29,7 +29,7 @@
             text-align: center;
             padding: 100px;
             padding-top: 25px;
-            padding-bottom: 110px;
+            padding-bottom: 105px;
             border: 1px;
             border-radius: 10px;
             background-color: gray;
@@ -73,7 +73,7 @@
             var nota3 = parseFloat(document.getElementById("nota3").value);
             var frequencia = parseFloat(document.getElementById("frequencia").value);
 
-            const media = (nota1 + nota2 + nota3) / 3;
+            var media = (nota1 + nota2 + nota3) / 3;
 
             if (media > 10 || frequencia > 100) {
                 document.getElementById("resultado").innerHTML = "Digite números validos!";

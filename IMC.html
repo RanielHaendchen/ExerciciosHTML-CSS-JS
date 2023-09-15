@@ -4,12 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Checar IMC</title>
+    <link rel="icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+
+    <style>        
+       label{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+        }
+
+        .caixa{
+            text-align: center;
+            padding: 100px;
+            padding-top: 25px;
+            padding-bottom: 75px;
+            border: 1px;
+            border-radius: 10px;
+            background-color: gray;
+            max-height: 210px;
+        }  
+        
+        button{
+            margin-top: 15px;
+        }
+      
+    </style>
+
 </head>
 <body>
     <nav>
         <script src="./scripts/navbar-imc.js"></script>
     </nav>
+
+    <div class="container">
+        <div class="caixa">
+            <h2>Checar IMC</h2>
+            <div class="caixaBotao">
+            <label for="peso">Informe seu peso</label>
+            <input type="number" id="peso" placeholder="Por exemplo: 70">
+            </div>
+            <div class="caixaBotao">
+            <label for="altura">Informe sua altura</label>
+            <input type="number" id="altura" placeholder="Por exemplo: 1.80">
+            </div>    
+
+            <button onclick="verificar() ">Verificar IMC</button>
+
+            <p id="resultado"></p>
+        </div>        
+    </div>
+
+    <script>
+        function verificar(){
+
+       
+        var peso = parseFloat(document.getElementById("peso").value);
+        var altura = parseFloat(document.getElementById("altura").value);
+
+        var IMC = peso / (altura * altura);
+
+
+        if(IMC < 17){
+            document.getElementById("resultado").innerHTML = "Muito abaixo do peso";
+        }
+        else if(IMC >=17 && IMC <= 18.49 ){
+            document.getElementById("resultado").innerHTML = "Abaixo do peso";
+        }
+        else if(IMC >=18.5 && IMC <= 24.99){
+            document.getElementById("resultado").innerHTML = "Peso Normal";
+        }
+        else if(IMC >= 25 && IMC <= 29.99){
+            document.getElementById("resultado").innerHTML = "Acima do Peso";
+        }
+        else if(IMC >=30 && IMC <= 34.99){
+            document.getElementById("resultado").innerHTML = "Obesidade I";
+        }
+        else if(IMC >=35 && IMC <= 39.99){
+            document.getElementById("resultado").innerHTML = "Obesidade II (Severa)";
+        }
+        else{
+            document.getElementById("resultado").innerHTML = "Obesidade III (mórbida)";
+        }
+        
+    }
+    </script>
 
     <footer>
         <script src="./scripts/footer.js"></script>
