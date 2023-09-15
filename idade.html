@@ -1,18 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Checar Idade</title>
+    <link rel="icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+
+
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 75vh;
+            margin: 0;
+        }
+
+        .caixa{
+            text-align: center;
+            padding: 50px;
+            border: 1px;
+            border-radius: 10px;
+            background-color: gray;
+            max-height: 145px;
+        }  
+        
+
+    </style>
 </head>
+
 <body>
     <nav>
         <script src="./scripts/navbar-idade.js"></script>
     </nav>
+    <div class="container">
+        <div class="caixa">
+            <h2>Verificar Maioridade</h2>
+
+            <input type="number" id="idade" required>
+        <br><br>
+            <button onclick="verificar()">Verifique</button>
+
+            <p id="resultado"></p>
+    </div>
+        </div>
+
+    <script>
+        function verificar() {
+            var idade = document.getElementById("idade").value;
+
+            idade = parseInt(idade);
+
+            if (idade < 0 || idade > 100) {
+                document.getElementById("resultado").innerHTML = 'Digite uma idade valida de 0 a 100 anos'
+            }
+            else if (idade >=18){
+                document.getElementById("resultado").innerHTML = 'Você é maior de idade'
+            }
+            else if(idade <18){
+                document.getElementById("resultado").innerHTML = 'Você é menor de idade'
+            }
+            else{
+                document.getElementById("resultado").innerHTML = 'Digite um número valido'
+            }
+
+        }        
+    </script>
 
     <footer>
         <script src="./scripts/footer.js"></script>
     </footer>
 </body>
+
 </html>

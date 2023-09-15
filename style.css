@@ -45,3 +45,12 @@ body {
     bottom: 0; 
     width: 100%; 
   }
+
+  .sobre:visited{
+    color: red;
+  }
+  
+  .sobre:link{
+    color: white;
+  }
+  
