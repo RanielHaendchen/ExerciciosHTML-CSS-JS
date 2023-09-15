@@ -1,19 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imagens/pngwing.com.png" type="image/x-icon">
+    <title>Checar Situação</title>
+
+    <style>
+
+      label{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+        }
+
+        .caixa{
+            text-align: center;
+            padding: 100px;
+            padding-top: 25px;
+            padding-bottom: 110px;
+            border: 1px;
+            border-radius: 10px;
+            background-color: gray;
+            max-height: 275px;
+        }  
+    </style>
 </head>
+
 <body>
     <nav>
         <script src="./scripts/navbar-media.js"></script>
     </nav>
+
+    <div class="container">
+        <div class="caixa">
+            <h2>Verificar Situação</h2>
+            <label for="nota1">Digite sua nota 1</label>
+            <input type="number" id="nota1" placeholder="Nota 1">
+
+            <label for="nota2">Digite sua nota 2</label>
+            <input type="number" id="nota2" placeholder="Nota 2">
+
+            <label for="nota3">Digite sua nota 3</label>
+            <input type="number" id="nota3" placeholder="Nota 3">
+
+            <label for="frequencia">Digite sua frequência</label>
+            <input type="number" id="frequencia" placeholder="Frequência">
+
+            <br>
+            <Br>
+            <button onclick="verificar()">Verifique sua situação!</button>
+
+            <p id="resultado"></p>
+        </div>
+    </div>
+
+    <script>
+        function verificar() {
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+            var nota3 = parseFloat(document.getElementById("nota3").value);
+            var frequencia = parseFloat(document.getElementById("frequencia").value);
+
+            const media = (nota1 + nota2 + nota3) / 3;
+
+            if (media > 10 || frequencia > 100) {
+                document.getElementById("resultado").innerHTML = "Digite números validos!";
+            }
+
+            else if(media >= 7 && frequencia>= 75){
+                document.getElementById("resultado").innerHTML = "Você passou de ano!";
+            } 
+
+            else {
+                document.getElementById("resultado").innerHTML = "Você reprovou de ano!";
+            }
+        }
+    </script>
 
     <footer>
         <script src="./scripts/footer.js"></script>
     </footer>
 
 </body>
+
 </html>
