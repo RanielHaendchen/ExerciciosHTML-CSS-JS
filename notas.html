@@ -83,8 +83,11 @@
                 document.getElementById("resultado").innerHTML = "Você passou de ano!";
             } 
 
-            else {
+            else if(media < 7 && frequencia <75){
                 document.getElementById("resultado").innerHTML = "Você reprovou de ano!";
+            }
+            else {
+                document.getElementById("resultado").innerHTML = "Digite sua nota e frequência";
             }
         }
     </script>

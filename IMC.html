@@ -93,8 +93,12 @@
         else if(IMC >=35 && IMC <= 39.99){
             document.getElementById("resultado").innerHTML = "Obesidade II (Severa)";
         }
-        else{
+        else if(IMC >=40){
             document.getElementById("resultado").innerHTML = "Obesidade III (mórbida)";
+        }
+        else{
+            document.getElementById("resultado").innerHTML = "Digite seu peso e altura";
+
         }
         
     }
