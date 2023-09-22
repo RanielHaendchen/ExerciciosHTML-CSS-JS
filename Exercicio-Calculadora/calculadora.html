@@ -5,58 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Calculadora</title>
+    
 </head>
 <body>
-    <div>
-        <label for="n1">Insira o primeiro número:</label>
-        <input type="text" id="n1">
-
-        <label for="n2">Insira o segundo número:</label>
-        <input type="text" id="n2">
-
-        <label for="operacao">Escolha a operação:</label>
-
-        <select id="operacao">
-            <option value="soma">Soma</option>
-            <option value="subtracao">Subtração</option>
-            <option value="divisao">Divisão</option>
-            <option value="multiplicacao">Multiplicação</option>
-        </select>
-
-        <button onclick="calcular()">Calcular</button>
-
-        <p id="resultado"></p>
+    <div class="container w-50">
+        <h1 class="mt-5">Calculadora</h1>
+        <div class="form-group">
+            <label for="n1">Insira o primeiro número:</label>
+            <input type="text" class="form-control" id="n1">
+        </div>
+        <div class="form-group">
+            <label for="n2">Insira o segundo número:</label>
+            <input type="text" class="form-control" id="n2">
+        </div>
+        <div class="form-group">
+            <label for="operacao">Escolha a operação:</label>
+            <select class="form-select" id="operacao">
+                <option value="soma">Soma</option>
+                <option value="subtracao">Subtração</option>
+                <option value="divisao">Divisão</option>
+                <option value="multiplicacao">Multiplicação</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="calcular()">Calcular</button>
+        <p id="resultado" class="mt-3"></p>
     </div>
 
     <script>
-        function calcular(){
+        function calcular() {
+            var n1 = parseFloat(document.getElementById('n1').value);
+            var n2 = parseFloat(document.getElementById('n2').value);
+            var operacao = document.getElementById('operacao').value;
 
-        var n1 = parseFloat(document.getElementById('n1').value)
-        var n2 = parseFloat(document.getElementById('n2').value)
-        var operacao = document.getElementById('operacao').value
+            var resultado;
 
-        var resultado;
+            switch (operacao) {
+                case 'soma':
+                    resultado = n1 + n2;
+                    break;
+                case 'subtracao':
+                    resultado = n1 - n2;
+                    break;
+                case 'divisao':
+                    resultado = n1 / n2;
+                    break;
+                case 'multiplicacao':
+                    resultado = n1 * n2;
+                    break;
+                default:
+                    resultado = 'Operação inválida';
+            }
 
-        switch (operacao){
-            case 'soma':
-               resultado = n1 + n2;
-                break;
-            case 'subtracao':
-                resultado = n1 - n2;
-                break;
-            case 'divisao':
-                resultado =  n1 / n2;
-                break;
-            case 'multiplicacao':
-                resultado =  n1 * n2;
-                break;            
-            default:
-                resultado = 'Operação Invalida';
-         }
-                document.getElementById('resultado').innerText = 'O resultado da operação é: ' + resultado;
-        
-    }    
+            document.getElementById('resultado').innerText = 'O resultado da operação é: ' + resultado;
+        }
     </script>
-    
 </body>
 </html>
