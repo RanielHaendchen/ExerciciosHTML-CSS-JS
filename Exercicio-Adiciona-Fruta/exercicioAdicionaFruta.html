@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Frutas</title>
+</head>
+<body>
+    <hr>
+    <input type="text" id="adicionarFruta" placeholder="Digite o nome da fruta">
+    <br>
+    <button onclick="adicionarFruta()">Adicionar Fruta</button>
+
+    <ul id="lista-frutas">
+        <!-- Lista de frutas será exibida aqui -->
+    </ul>
+
+    <script>
+        function adicionarFruta() {
+            var novaFruta = document.getElementById('adicionarFruta').value; 
+            if (novaFruta) {
+                var listaFrutas = document.getElementById('lista-frutas');
+                listaFrutas.innerHTML += '<li>' + novaFruta + '</li>'; 
+                document.getElementById('adicionarFruta').value = ''; 
+            }
+        }
+
+        function carregar(){
+            var fruits = [""].value
+
+            document.getElementById(adicionarFruta).frutas.push("").value
+        
+
+           document.getElementsByTagName("ul")[0].innerHTML = adicionarFruta    
+        }
+    </script>
+</body>
+</html>
