@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Lista de Frutas</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-8">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="adicionarFruta" placeholder="Digite o nome da fruta">
+                </div>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" onclick="adicionarFruta()">Adicionar Fruta</button>
+            </div>
+        </div>
+    </div>
+
+    <ul id="lista-frutas" class="list-group mt-3">
+        <!-- Lista de frutas será exibida aqui -->
+    </ul>
+
+    <script>
+        function adicionarFruta() {
+            var novaFruta = document.getElementById('adicionarFruta').value; 
+            if (novaFruta) {
+                var listaFrutas = document.getElementById('lista-frutas');
+                listaFrutas.innerHTML += '<li class="list-group-item">' + novaFruta + '</li>'; 
+                document.getElementById('adicionarFruta').value = ''; 
+            }
+        }
+    </script>
