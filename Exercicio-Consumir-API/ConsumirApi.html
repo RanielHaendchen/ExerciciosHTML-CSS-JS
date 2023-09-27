@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <style>
+    div img{
+        width: 300px;
+        height: 300px;
+    }
+
+    </style>
+</head>
+
+<body>
+    
+    
+
+
+   
+
+    <button onclick="mostraGato()">Imagem de gato</button>
+    <img id="gato" src="" alt="" width="400px" height="400px">
+
+    <button onclick="carregarMuitosGatos()">Carregar muitos gatos</button>
+    <div id="gatos">
+        <!---->
+    </div>
+
+
+    <script>
+        function mostraGato() {
+
+            fetch(`https://api.thecatapi.com/v1/images/search`)
+/*Dados ali é uma variavel*/.then((dados) => dados.json())
+                .then((response) => {
+                    console.log(response)
+                    const url = response[0].url;
+                    document.getElementById("gato").src = url;
+
+
+                }
+                )
+                .catch((erro) => console.log(erro))
+        }
+
+        function carregarMuitosGatos() {         
+                fetch('https://api.thecatapi.com/v1/images/search?limit=10')
+                    .then((dados) => dados.json())
+                    .then((response) => {
+                        let imagens = ''
+                        for (let i = 0; i < response.length; i++) {
+                            imagens += `<img class='tamanho' src='${response[i].url}' alt='${i}' />'`
+                        }
+                        document.getElementById('gatos').innerHTML = imagens
+                    })
+            }
+
+    </script>
+</body>
+
+</html>
