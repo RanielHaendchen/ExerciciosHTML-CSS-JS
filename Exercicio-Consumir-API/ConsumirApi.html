@@ -1,63 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
     <style>
-    div img{
-        width: 300px;
-        height: 300px;
-    }
-
+        
+        div img {
+            width: 300px;
+            height: 300px;
+        }
     </style>
 </head>
 
 <body>
     
-    
-
-
-   
-
     <button onclick="mostraGato()">Imagem de gato</button>
     <img id="gato" src="" alt="" width="400px" height="400px">
 
+   
     <button onclick="carregarMuitosGatos()">Carregar muitos gatos</button>
+    <!-- Contêiner para exibir várias imagens de gato -->
     <div id="gatos">
         <!---->
     </div>
 
-
     <script>
+        // Função para exibir uma única imagem de gato
         function mostraGato() {
-
+            // Busca uma imagem de gato aleatória na API
             fetch(`https://api.thecatapi.com/v1/images/search`)
-/*Dados ali é uma variavel*/.then((dados) => dados.json())
-                .then((response) => {
-                    console.log(response)
-                    const url = response[0].url;
-                    document.getElementById("gato").src = url;
+                .then((dados) => dados.json()) // Converte a resposta da requisição para JSON
+                .then((response) => {     // Manipula a resposta após a conversão para JSON
+                    // Extrai a URL da imagem e a define como fonte do elemento de imagem
 
+                    // 'response' agora contém os dados no formato JSON da resposta da API
+                    const url = response[0].url;    // Extrai a URL da primeira imagem de gato da resposta
 
-                }
-                )
-                .catch((erro) => console.log(erro))
+                    document.getElementById("gato").src = url; // Define a URL como a fonte da imagem
+                })
+                .catch((erro) => console.log(erro));
         }
 
-        function carregarMuitosGatos() {         
-                fetch('https://api.thecatapi.com/v1/images/search?limit=10')
-                    .then((dados) => dados.json())
-                    .then((response) => {
-                        let imagens = ''
-                        for (let i = 0; i < response.length; i++) {
-                            imagens += `<img class='tamanho' src='${response[i].url}' alt='${i}' />'`
-                        }
-                        document.getElementById('gatos').innerHTML = imagens
-                    })
-            }
-
+        // Função para carregar várias imagens de gato
+        function carregarMuitosGatos() {
+            // Busca várias imagens de gato na API (limitando a 10)
+            fetch('https://api.thecatapi.com/v1/images/search?limit=10')
+                .then((dados) => dados.json())
+                .then((response) => {
+                    // Cria HTML para exibir várias imagens de gato
+                    let imagens = '';
+                    for (let i = 0; i < response.length; i++) {
+                        imagens += `<img class='tamanho' src='${response[i].url}' alt='${i}' />'`
+                    }
+                    // Define o HTML gerado no contêiner designado
+                    document.getElementById('gatos').innerHTML = imagens;
+                })
+                .catch((erro) => console.log(erro));
+        }
     </script>
 </body>
 
