@@ -9,16 +9,22 @@
 <body onload="consultar()">
     <div class="container">
         <div class="mt-3">
-            <label class="form-label" for="nome">Informe nome</label>
+            <label class="form-label" for="descricao">Descrição do Produto:</label>
 
-            <input type="text" placeholder="Informe nome" id="nome" class="form-control">
+            <input type="text" placeholder="Informe descrição" id="descricao" class="form-control">
         </div>
 
         <div class="mt-3">
-            <label class="form-label" for="sobreNome">Informe sobrenome</label>
+            <label class="form-label" for="valor">Informe Valor</label>
 
-            <input type="text" placeholder="Informe sobrenome" id="sobreNome" class="form-control">
+            <input type="text" placeholder="Informe o valor do produto" id="valor" class="form-control">
         </div>
+        <div class="mt-3">
+            <label class="form-label" for="quantidade">Informe Quantidade</label>
+
+            <input type="text" placeholder="Informe a quantidade de produtos" id="quantidade" class="form-control">
+        </div>
+        
         <div class="mt-3">
             <button id="salvar" class="btn btn-outline-primary" onclick="gravar()">Gravar</button>
             <button id="editar" class="btn btn-outline-success" onclick="confirmaEditar()" disabled>Editar</button>
@@ -28,8 +34,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -41,41 +48,33 @@
     </div>
 
     <script>
-        let contatos = [
-                {
-                    nome: 'Maria',
-                    sobrenome: ' das dores'
-                },
-                {
-                    nome: 'José',
-                    sobrenome: ' da Silva'
-                }
+        let produtos = []
 
-                
-        ]
-        console.log(contatos)
-
-        let contatoEditar = {}
+        let editarProduto = {}
 
         function gravar(){
-             let inputNome = document.getElementById("nome")
+             let inputDescricao = document.getElementById("descricao")
 
-             let inputSobreNome = document.getElementById("sobreNome")
+             let inputValor = document.getElementById("valor")
+
+             let inputQuantidade = document.getElementById("quantidade")
             
-            let novoContato = {
-                nome: inputNome.value ,
-                sobrenome: inputSobreNome.value
+            let novoProduto = {
+                descricao: inputDescricao.value ,
+                valor: inputValor.value ,
+                quantidade: inputQuantidade.value
             }
-            contatos.push(novoContato) 
+            produtos.push(novoProduto) 
             consultar()          
         }
 
         function consultar(){
             let itens = ''
-            for(let i = 0; i < contatos.length; i++){
+            for(let i = 0; i < produtos.length; i++){
                itens += `<tr>
-                            <td>${contatos[i].nome}</td>
-                            <td>${contatos[i].sobrenome}</td>
+                            <td>${produtos[i].descricao}</td>
+                            <td>${produtos[i].valor}</td>
+                            <td>${produtos[i].quantidade}</td>
                             <td><button class='btn btn-outline-primary' onclick=editar('${i}')>Editar</button></td>
                             <td><button class='btn btn-danger' onclick=excluir('${i}')>Excluir</button></td>
                       </tr>`
@@ -85,11 +84,12 @@
 
         function editar(item){
             //seleciona o contato do array
-            contatoEditar = contatos[item] 
+            editarProduto = produtos[item] 
 
             //mostra os valores no formulario
-            document.getElementById("nome").value = contatoEditar.nome
-            document.getElementById("sobreNome").value = contatoEditar.sobrenome
+            document.getElementById("descricao").value = editarProduto.descricao
+            document.getElementById("valor").value = editarProduto.valor
+            document.getElementById("quantidade").value = editarProduto.quantidade
 
             //desabilita botoes
             document.getElementById('salvar').setAttribute('disabled','true')
@@ -98,8 +98,9 @@
 
         function confirmaEditar(){
              //recebe os valores no formulario
-             contatoEditar.nome = document.getElementById("nome").value 
-             contatoEditar.sobrenome = document.getElementById("sobreNome").value 
+             editarProduto.descricao = document.getElementById("descricao").value 
+             editarProduto.valor = document.getElementById("valor").value 
+             editarProduto.quantidade = document.getElementById("quantidade").value
 
             //desabilita botoes
             document.getElementById('editar').setAttribute('disabled','true')
@@ -110,7 +111,7 @@
         }
 
         function excluir(item){
-            contatos.splice(item,1)
+            produtos.splice(item,1)
             consultar()
         }
     </script>
