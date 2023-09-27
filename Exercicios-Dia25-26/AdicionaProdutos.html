@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .diminuir2{
+            width: 75px;
+        }
+
+       
+
+    </style>
 </head>
 <body onload="consultar()">
     <div class="container">
@@ -25,7 +34,7 @@
             <input type="text" placeholder="Informe a quantidade de produtos" id="quantidade" class="form-control">
         </div>
         
-        <div class="mt-3">
+        <div class="mt-3 teste">
             <button id="salvar" class="btn btn-outline-primary" onclick="gravar()">Gravar</button>
             <button id="editar" class="btn btn-outline-success" onclick="confirmaEditar()" disabled>Editar</button>
         </div>
@@ -44,6 +53,10 @@
                     <!--Dados preenchidos via javascript-->
                 </tbody>
             </table>
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="total">Total Contábil:</label>
+            <div id="totalContabil">0</div>
         </div>
     </div>
 
@@ -66,6 +79,7 @@
             }
             produtos.push(novoProduto) 
             consultar()          
+            limparInput()
         }
 
         function consultar(){
@@ -74,8 +88,8 @@
                itens += `<tr>
                             <td>${produtos[i].descricao}</td>
                             <td>${produtos[i].valor}</td>
-                            <td>${produtos[i].quantidade}</td>
-                            <td><button class='btn btn-outline-primary' onclick=editar('${i}')>Editar</button></td>
+                            <td class='diminuir1'>${produtos[i].quantidade}</td>
+                            <td class='diminuir2'><button class='btn btn-outline-primary' onclick=editar('${i}')>Editar</button></td>
                             <td><button class='btn btn-danger' onclick=excluir('${i}')>Excluir</button></td>
                       </tr>`
             }
@@ -108,11 +122,20 @@
 
             //atualiza dados na tabela
             consultar()
+            limparInput()
         }
 
         function excluir(item){
             produtos.splice(item,1)
             consultar()
+            
+        }
+
+        
+        function limparInput() {
+            document.getElementById('descricao').value = '';
+            document.getElementById('valor').value = '';
+            document.getElementById('quantidade').value = '';
         }
     </script>
 </body>
