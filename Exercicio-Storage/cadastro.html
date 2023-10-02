@@ -26,7 +26,20 @@
         </div>
     </div>
 
-
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="w-50">
+            <div class="mb-3 mt-5">
+                <h2>Dados para logar</h2>
+                <label for="emailCadastro" class="form-label">Email</label>
+                <input type="email" class="form-control" id="emailCadastro" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="senhaCadastro" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senhaCadastro">
+            </div>
+            <button type="button" onclick="logar()" class="btn btn-primary">Logar</button>
+        </div>
+    </div>
 
     <script>
         const cadastro = [];
@@ -40,51 +53,54 @@
                 senha: senha
             }
 
-            cadastro.push(objeto)
+            document.getElementById("email").value = ''
+            document.getElementById("senha").value = ''
 
-            localStorage.setItem('user', JSON.stringify(cadastro))
+            cadastro.push(objeto);
+
+            localStorage.setItem('usuario', JSON.stringify(cadastro));
+
 
         }
 
+        function logar() {
+            const emailCadastro = document.getElementById("emailCadastro").value;
+            const senhaCadastro = document.getElementById("senhaCadastro").value;
 
-        /*function cadastrar() {
-            let contatos = [
-                {
-                    nome: 'maria',
-                    email: 'maria@gmail'
-                },
-                {
-                    nome: 'jose',
-                    email: 'jose@gmail'
+            if (localStorage.getItem('usuario')) {
+                const usuarios = JSON.parse(localStorage.getItem('usuario'));
+                const userExiste = usuarios.find((usuario) => usuario.email === emailCadastro && usuario.senha === senhaCadastro);
+
+                if (userExiste) {
+                    alert("Usuário logado");
+                    return;
+                    document.getElementById("emailCadastro").value = '';
+                    document.getElementById("senhaCadastro").value = '';
                 }
-            ]
-    
-            localStorage.setItem('user', JSON.stringify(contatos))
-        }
-    
-        function inserirOutroUsuario() {
-            var contatos = localStorage.getItem('user')
-    
-            if (contatos != '') {
-                contatos = JSON.parse(contatos)
-                let novoObjeto = {
-                    nome: 'antonio',
-                    email: 'antonio@gmail'
-                }
-                contatos.push(novoObjeto)
             }
-            localStorage.setItem('user', JSON.stringify(contatos))
-    
+
+            alert("Credenciais inválidas");
+            document.getElementById("emailCadastro").value = '';
+            document.getElementById("senhaCadastro").value = '';
         }
-    
-        function ler() {
-            let user = localStorage.getItem('user')
-            document.getElementById('p1').innerHTML = user
-        }
-    
-        function excluir() {
-            localStorage.removeItem('user')
-        }*/
+
+
+            /*for (let i = 0; i < cadastro.length; i++) {
+                const usuario = cadastro[i];
+                if (usuario.email === emailCadastro && usuario.senha === senhaCadastro) {
+                    // Se achar, ele loga 
+                    alert('Login do email: ' + emailCadastro);
+                    document.getElementById("emailCadastro").value = '';
+                    document.getElementById("senhaCadastro").value = '';
+                    return; 
+                }
+            }
+
+            // Se não encontrou credenciais 
+            alert('Credenciais inválidas');
+            document.getElementById("emailCadastro").value = '';
+            document.getElementById("senhaCadastro").value = '';*/
+        
     </script>
 </body>
 
