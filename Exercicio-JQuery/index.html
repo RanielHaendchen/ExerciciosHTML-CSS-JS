@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>Cinema</title>
+
+    <style>
+        body {
+            background-color: rgb(197, 159, 159);
+        }
+
+        .bloco {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            background-color: green;
+        }
+
+        .ocupado {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="form-group w-25 mt-5">
+        <label for="cadeiras">Números de Cadeiras</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="cadeiras" placeholder="Digite a quantidade">
+            <button class="btn btn-primary margin-right" id="confirmarCadeira">Confirmar</button>
+        </div>
+    </div>
+
+    <div id="criarCadeira"></div>
+
+    <hr>
+    <div>
+        <p>Livres: <span id="tlivres"></span></p>
+        <p>Ocupados: <span id="tocupados"></span></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#confirmarCadeira').click(() => {
+                let quantidade = $('#cadeiras').val();
+                let cadeiras = '';
+
+                for (let i = 1; i <= quantidade; i++) {
+                    cadeiras += `<button class="bloco">${i}</button>`;
+                }
+                $('#criarCadeira').html(cadeiras);
+
+                $('.bloco').click((item) => {
+                    let target = $(item.target);
+                    if (target.hasClass('bloco')) {
+                        target.removeClass('bloco').addClass('ocupado');
+                    } else if (target.hasClass('ocupado')) {
+                        target.removeClass('ocupado').addClass('bloco');
+                    } else if (target.hasClass('bloco')) {
+                        target.removeClass('bloco').addClass('ocupado');
+                    }
+
+                    $('#tlivres').html($('button.bloco').length)
+                    $('#tocupados').html($('button.ocupado').length)
+
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
