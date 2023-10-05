@@ -4,33 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         .diminuir2{
             width: 75px;
         }
-
-       
-
     </style>
 </head>
 <body onload="consultar()">
     <div class="container">
         <div class="mt-3">
             <label class="form-label" for="descricao">Descrição do Produto:</label>
-
             <input type="text" placeholder="Informe descrição" id="descricao" class="form-control">
         </div>
 
         <div class="mt-3">
             <label class="form-label" for="valor">Informe Valor</label>
-
             <input type="text" placeholder="Informe o valor do produto" id="valor" class="form-control">
         </div>
         <div class="mt-3">
             <label class="form-label" for="quantidade">Informe Quantidade</label>
-
             <input type="text" placeholder="Informe a quantidade de produtos" id="quantidade" class="form-control">
         </div>
         
@@ -46,6 +40,7 @@
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Quantidade</th>
+                        <th>Valor Total</th> <!-- Adicionado campo para valor total -->
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -66,72 +61,74 @@
         let editarProduto = {}
 
         function gravar(){
-             let inputDescricao = document.getElementById("descricao")
-
-             let inputValor = document.getElementById("valor")
-
-             let inputQuantidade = document.getElementById("quantidade")
+            let inputDescricao = document.getElementById("descricao")
+            let inputValor = document.getElementById("valor")
+            let inputQuantidade = document.getElementById("quantidade")
             
             let novoProduto = {
                 descricao: inputDescricao.value ,
-                valor: inputValor.value ,
-                quantidade: inputQuantidade.value
+                valor: parseFloat(inputValor.value),
+                quantidade: parseInt(inputQuantidade.value)
             }
-            produtos.push(novoProduto) 
-            consultar()          
-            limparInput()
+            produtos.push(novoProduto)
+            calcularTotalContabil();
+            consultar();
+            limparInput();
+        }
+
+        function calcularTotalContabil() {
+            let totalContabil = 0;
+            for (let i = 0; i < produtos.length; i++) {
+                totalContabil += produtos[i].valor * produtos[i].quantidade;
+            }
+            document.getElementById('totalContabil').innerText = totalContabil.toFixed(2);
         }
 
         function consultar(){
-            let itens = ''
+            let itens = '';
             for(let i = 0; i < produtos.length; i++){
+               const valorTotal = (produtos[i].valor * produtos[i].quantidade).toFixed(2);
                itens += `<tr>
                             <td>${produtos[i].descricao}</td>
                             <td>${produtos[i].valor}</td>
-                            <td class='diminuir1'>${produtos[i].quantidade}</td>
+                            <td>${produtos[i].quantidade}</td>
+                            <td>${valorTotal}</td>
                             <td class='diminuir2'><button class='btn btn-outline-primary' onclick=editar('${i}')>Editar</button></td>
                             <td><button class='btn btn-danger' onclick=excluir('${i}')>Excluir</button></td>
-                      </tr>`
+                      </tr>`;
             }
-            document.getElementsByTagName('tbody')[0].innerHTML = itens
+            document.getElementsByTagName('tbody')[0].innerHTML = itens;
+            calcularTotalContabil(); // Atualiza o total contábil após cada consulta
         }
 
         function editar(item){
-            //seleciona o contato do array
-            editarProduto = produtos[item] 
+            editarProduto = produtos[item]; 
 
-            //mostra os valores no formulario
-            document.getElementById("descricao").value = editarProduto.descricao
-            document.getElementById("valor").value = editarProduto.valor
-            document.getElementById("quantidade").value = editarProduto.quantidade
+            document.getElementById("descricao").value = editarProduto.descricao;
+            document.getElementById("valor").value = editarProduto.valor;
+            document.getElementById("quantidade").value = editarProduto.quantidade;
 
-            //desabilita botoes
-            document.getElementById('salvar').setAttribute('disabled','true')
-            document.getElementById('editar').removeAttribute('disabled')
+            document.getElementById('salvar').setAttribute('disabled','true');
+            document.getElementById('editar').removeAttribute('disabled');
         }
 
         function confirmaEditar(){
-             //recebe os valores no formulario
-             editarProduto.descricao = document.getElementById("descricao").value 
-             editarProduto.valor = document.getElementById("valor").value 
-             editarProduto.quantidade = document.getElementById("quantidade").value
+            editarProduto.descricao = document.getElementById("descricao").value;
+            editarProduto.valor = parseFloat(document.getElementById("valor").value);
+            editarProduto.quantidade = parseInt(document.getElementById("quantidade").value);
 
-            //desabilita botoes
-            document.getElementById('editar').setAttribute('disabled','true')
-            document.getElementById('salvar').removeAttribute('disabled')
+            document.getElementById('editar').setAttribute('disabled','true');
+            document.getElementById('salvar').removeAttribute('disabled');
 
-            //atualiza dados na tabela
-            consultar()
-            limparInput()
+            consultar();
+            limparInput();
         }
 
         function excluir(item){
-            produtos.splice(item,1)
-            consultar()
-            
+            produtos.splice(item,1);
+            consultar();
         }
 
-        
         function limparInput() {
             document.getElementById('descricao').value = '';
             document.getElementById('valor').value = '';
