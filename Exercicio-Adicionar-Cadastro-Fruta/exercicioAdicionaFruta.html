@@ -25,10 +25,20 @@
     </ul>
 
     <script>
-        function adicionarFruta() {
+                function adicionarFruta() {
             var novaFruta = document.getElementById('adicionarFruta').value; 
             if (novaFruta) {
                 var listaFrutas = document.getElementById('lista-frutas');
+                
+                
+                var frutasNaLista = listaFrutas.getElementsByClassName('list-group-item');
+                for (var i = 0; i < frutasNaLista.length; i++) {
+                    if (frutasNaLista[i].textContent.toLowerCase() === novaFruta.toLowerCase()) {
+                        alert('Essa fruta já está na lista.');
+                        return;
+                    }
+                }
+                
                 listaFrutas.innerHTML += '<li class="list-group-item">' + novaFruta + '</li>'; 
                 document.getElementById('adicionarFruta').value = ''; 
             }
