@@ -1,0 +1,14 @@
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\bin\Debug\net6.0\ExercicioHeranca.exe
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\bin\Debug\net6.0\ExercicioHeranca.deps.json
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\bin\Debug\net6.0\ExercicioHeranca.runtimeconfig.json
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\bin\Debug\net6.0\ExercicioHeranca.dll
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\bin\Debug\net6.0\ExercicioHeranca.pdb
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.AssemblyInfoInputs.cache
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.AssemblyInfo.cs
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.csproj.CoreCompileInputs.cache
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.dll
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\refint\ExercicioHeranca.dll
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.pdb
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ExercicioHeranca.genruntimeconfig.cache
+C:\Users\raniel.silva\source\repos\ExercicioHeranca\ExercicioHeranca\obj\Debug\net6.0\ref\ExercicioHeranca.dll
