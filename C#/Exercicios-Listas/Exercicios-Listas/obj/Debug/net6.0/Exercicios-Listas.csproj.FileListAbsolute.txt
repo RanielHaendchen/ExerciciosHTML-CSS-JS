@@ -1,0 +1,14 @@
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.AssemblyInfoInputs.cache
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.AssemblyInfo.cs
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.csproj.CoreCompileInputs.cache
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\bin\Debug\net6.0\Exercicios-Listas.exe
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\bin\Debug\net6.0\Exercicios-Listas.deps.json
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\bin\Debug\net6.0\Exercicios-Listas.runtimeconfig.json
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\bin\Debug\net6.0\Exercicios-Listas.dll
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\bin\Debug\net6.0\Exercicios-Listas.pdb
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.dll
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\refint\Exercicios-Listas.dll
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.pdb
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\Exercicios-Listas.genruntimeconfig.cache
+C:\Users\raniel.silva\source\repos\Exercicios-Listas\Exercicios-Listas\obj\Debug\net6.0\ref\Exercicios-Listas.dll
