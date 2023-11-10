@@ -10,6 +10,12 @@ namespace Listas
     {
         static void Main(string[] args)
         {
+            /*crudCarro();*/
+            crudProduto();
+        }
+        
+        static void crudCarro()
+        {
             List<Carro> carros = new List<Carro>();
 
             while (true)
@@ -44,17 +50,17 @@ namespace Listas
 
                         carros.Add(car);
                         Console.Clear();
-                    break;
+                        break;
 
                     case 2:
                         foreach (Carro mostraCarro in carros)
                         {
                             Console.WriteLine(mostraCarro.ToString());
-                        }                        
+                        }
 
-                    break;
+                        break;
 
-                   case 3:
+                    case 3:
                         Console.WriteLine("Digite a placa do carro: ");
                         string procuraPlaca = Console.ReadLine();
 
@@ -79,7 +85,7 @@ namespace Listas
                             Console.WriteLine("Carro não encontrado");
                         }
 
-                   break;
+                        break;
 
                     case 4:
                         /*Atualizar dados*/
@@ -90,7 +96,7 @@ namespace Listas
 
                         for (int i = 0; i < carros.Count; i++)
                         {
-                            if (carros[i].Placa ==  placaParaAtualizar)
+                            if (carros[i].Placa == placaParaAtualizar)
                             {
                                 Console.WriteLine("Digite a nova placa: ");
                                 string novaPlaca = Console.ReadLine();
@@ -110,7 +116,7 @@ namespace Listas
                                 carroEncontrado = true;
 
                                 Console.Clear();
-                                
+
                             }
                         }
                         if (!carroEncontrado)
@@ -119,7 +125,7 @@ namespace Listas
                         }
 
 
-                    break;
+                        break;
 
                     case 5:
                         Console.WriteLine("Digite a placa para remover o carro: ");
@@ -142,20 +148,69 @@ namespace Listas
                         {
                             Console.WriteLine("Carro não encontrado");
                         }
-                    break;
+                        break;
 
                     case 6:
                         Console.WriteLine("Saindo do programa");
-                    return;
+                        return;
 
                     default:
                         Console.WriteLine("Opção invalida. Digite um número de 1 a 6");
-                    break;
+                        break;
 
                 }
             }
         }
-     
 
+        static void crudProduto()
+        {
+            List<Produto> listaProdutos = new List<Produto>();
+            Produto produto = new Produto();
+
+            while (true)
+            {
+                Console.WriteLine("Selecione:");
+                Console.WriteLine("1- Adicionar Produto");
+                Console.WriteLine("2- Listar todos os produtos");
+                Console.WriteLine("3- Procurar produto por ID");
+                Console.WriteLine("4- Atualizar dados do Produto");
+                Console.WriteLine("5- Deletar Produto");
+                Console.WriteLine("6- Sair");
+
+                int opcao = Convert.ToInt32(Console.ReadLine());
+                /*            return $"Id: {Id}, Descrição: {Descricao}, Estoque: {Estoque}, Valor Unitário {ValorUnitario}";
+*/
+                switch (opcao)
+                {
+                    case 1: 
+                        Console.WriteLine("Digite o ID do produto: ");
+                        produto.Id = Console.ReadLine();
+
+                        Console.WriteLine("Digite a descrição do produto: ");
+                        produto.Descricao = Console.ReadLine();
+
+                        Console.WriteLine("Digite o estoque do produto: ");
+                        produto.Estoque = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor do produto: ");
+                        produto.ValorUnitario = Convert.ToInt32(Console.ReadLine());
+                        listaProdutos.Add(produto);
+                        break;
+
+                    case 2:
+                        foreach (Produto mostraProdutos in listaProdutos)
+                        {
+                            Console.WriteLine(mostraProdutos.ToString());
+                        }
+
+                        break;
+                    case 3: 
+                        
+
+                }
+            }
+
+
+        }
      }
 }

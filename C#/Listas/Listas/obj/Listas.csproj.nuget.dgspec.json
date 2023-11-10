@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\raniel.silva\\source\\repos\\Listas\\Listas\\Listas.csproj": {}
+    "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\Listas\\Listas\\Listas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\raniel.silva\\source\\repos\\Listas\\Listas\\Listas.csproj": {
+    "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\Listas\\Listas\\Listas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\raniel.silva\\source\\repos\\Listas\\Listas\\Listas.csproj",
+        "projectUniqueName": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\Listas\\Listas\\Listas.csproj",
         "projectName": "Listas",
-        "projectPath": "C:\\Users\\raniel.silva\\source\\repos\\Listas\\Listas\\Listas.csproj",
+        "projectPath": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\Listas\\Listas\\Listas.csproj",
         "packagesPath": "C:\\Users\\raniel.silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\raniel.silva\\source\\repos\\Listas\\Listas\\obj\\",
+        "outputPath": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\Listas\\Listas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\raniel.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
