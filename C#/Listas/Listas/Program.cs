@@ -13,7 +13,7 @@ namespace Listas
             /*crudCarro();*/
             crudProduto();
         }
-        
+
         static void crudCarro()
         {
             List<Carro> carros = new List<Carro>();
@@ -182,7 +182,7 @@ namespace Listas
 */
                 switch (opcao)
                 {
-                    case 1: 
+                    case 1:
                         Console.WriteLine("Digite o ID do produto: ");
                         produto.Id = Console.ReadLine();
 
@@ -195,6 +195,7 @@ namespace Listas
                         Console.WriteLine("Digite o valor do produto: ");
                         produto.ValorUnitario = Convert.ToInt32(Console.ReadLine());
                         listaProdutos.Add(produto);
+                        Console.Clear();
                         break;
 
                     case 2:
@@ -204,13 +205,86 @@ namespace Listas
                         }
 
                         break;
-                    case 3: 
-                        
+                    case 3:
+                        Console.WriteLine("Digite o ID do produto: ");
+                        string buscaId = Console.ReadLine();
 
+                        bool produtoEncontrado = false;
+
+                        foreach (Produto mostraProduto in listaProdutos)
+                        {
+                            if (mostraProduto.Id == buscaId)
+                            {
+                                Console.WriteLine(mostraProduto.ToString());
+                                produtoEncontrado = true;
+                                break;
+                            }
+                        }
+
+                        if (!produtoEncontrado)
+                        {
+                            Console.WriteLine("Produto não encontrado");
+                        }
+                        break;
+
+                    case 4:
+                        /* Atualizar dados do Produto */
+                        Console.WriteLine("Digite o ID do produto que deseja atualizar: ");
+                        string idParaAtualizar = Console.ReadLine();
+
+                        bool produtoEncontradoParaAtualizar = false;
+
+                        for (int i = 0; i < listaProdutos.Count; i++)
+                        {
+                            if (listaProdutos[i].Id == idParaAtualizar)
+                            {
+                                Console.WriteLine("Digite a nova descrição: ");
+                                string novaDescricao = Console.ReadLine();
+                                listaProdutos[i].Descricao = novaDescricao;
+
+                                Console.WriteLine("Digite o novo estoque: ");
+                                int novoEstoque = Convert.ToInt32(Console.ReadLine());
+                                listaProdutos[i].Estoque = novoEstoque;
+
+                                Console.WriteLine("Digite o novo valor unitário: ");
+                                int novoValorUnitario = Convert.ToInt32(Console.ReadLine());
+                                listaProdutos[i].ValorUnitario = novoValorUnitario;
+
+                                produtoEncontradoParaAtualizar = true;
+                                Console.Clear();
+                            }
+                        }
+
+                        if (!produtoEncontradoParaAtualizar)
+                        {
+                            Console.WriteLine("Produto não encontrado");
+                        }
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Digite o ID para remover o produto: ");
+                        string idParaDeletar = Console.ReadLine();
+
+                        bool produtoEncontradoParaDeletar = false;
+
+                        for (int i = 0; i < listaProdutos.Count; i++)
+                        {
+                            if (listaProdutos[i].Id == idParaDeletar)
+                            {
+                                listaProdutos.RemoveAt(i);
+                                produtoEncontradoParaDeletar = true;
+                                Console.Clear();
+                                break;
+                            }
+                        }
+
+                        if (!produtoEncontradoParaDeletar)
+                        {
+                            Console.WriteLine("Produto não encontrado");
+                        }
+                        break;
                 }
             }
-
-
         }
-     }
+    }
 }
