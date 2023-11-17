@@ -1,0 +1,14 @@
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\bin\Debug\net6.0\TrabalhandoComArquivos.exe
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\bin\Debug\net6.0\TrabalhandoComArquivos.deps.json
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\bin\Debug\net6.0\TrabalhandoComArquivos.runtimeconfig.json
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\bin\Debug\net6.0\TrabalhandoComArquivos.dll
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\bin\Debug\net6.0\TrabalhandoComArquivos.pdb
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.AssemblyInfoInputs.cache
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.AssemblyInfo.cs
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.csproj.CoreCompileInputs.cache
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.dll
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\refint\TrabalhandoComArquivos.dll
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.pdb
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\TrabalhandoComArquivos.genruntimeconfig.cache
+C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\obj\Debug\net6.0\ref\TrabalhandoComArquivos.dll
