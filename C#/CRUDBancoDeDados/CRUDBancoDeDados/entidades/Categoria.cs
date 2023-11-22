@@ -20,9 +20,15 @@ namespace CRUDBancoDeDados.entidades
             Descricao = descricao;
         }
 
+        public Categoria(string descricao)
+        {
+            
+            Descricao = descricao;
+        }
+
         public override string ToString()
         {
-            return $"ID_Categoria: {Id} Descrição: {Descricao}";
+            return $"idCategoria: {Id} Descrição: {Descricao.Trim()}";
         }
 
 

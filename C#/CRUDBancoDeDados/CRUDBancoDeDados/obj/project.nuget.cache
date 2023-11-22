@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IrlVZcrlhvKsabOz+X7vl9wt6bDq3Q2af3dhC11Ss6kDYOCLgkP6fmiiHIEHoQWNZkutbaxmAaBFn9BoOAGPHA==",
+  "dgSpecHash": "/949nl+Xst5j6ba3UgwK8nggLS/g+dOgYhW8uZx3O6SjTUucMclKLCdFZQ359DrS5yJRPKjLYF/WCRXm64qgcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\raniel.silva\\source\\repos\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
+  "projectFilePath": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\raniel.silva\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\raniel.silva\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

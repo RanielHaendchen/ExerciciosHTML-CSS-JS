@@ -26,7 +26,7 @@ namespace CRUDBancoDeDados.DAO
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = produto.Nome;
                 cn.Parameters.Add("valor", SqlDbType.Int).Value = produto.Valor;
                 cn.Parameters.Add("estoque", SqlDbType.Int).Value = produto.Estoque;
-                cn.Parameters.Add("IDCategoria", SqlDbType.Int).Value = produto.Categoria.Id;
+                cn.Parameters.Add("IDCategoria", SqlDbType.Int).Value = produto.IDCategoria;
 
 
 
@@ -49,7 +49,9 @@ namespace CRUDBancoDeDados.DAO
                 /*monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
                 cn.CommandType = CommandType.Text;
-                cn.CommandText = "select * from Produto";
+                cn.CommandText = "SELECT p.Id, p.Nome, p.Valor, p.Estoque, p.IDCategoria, c.Descricao AS DescCategoria FROM Produto p INNER JOIN Categorias c ON p.IDCategoria = c.Id";
+
+                //cn.CommandText = "select * from Produto";
 
                 /*abrir a conexão*/
                 cn.Connection = con;
@@ -64,20 +66,20 @@ namespace CRUDBancoDeDados.DAO
                     produto.Nome = Convert.ToString(dr["Nome"]);
                     produto.Valor = Convert.ToInt32(dr["Valor"]);
                     produto.Estoque = Convert.ToInt32(dr["Estoque"]);
+                    produto.IDCategoria = Convert.ToInt32(dr["IDCategoria"]);
 
-                    // Verificar se o campo IDCategoria é nulo antes de converter
-                    if (dr["IDCategoria"] != DBNull.Value)
-                    {
-                        produto.Categoria = new Categoria
-                        {
-                            Id = Convert.ToInt32(dr["IDCategoria"])
-                        };
-                    }
+                    Categoria cat = new Categoria();
+                    cat.Id = Convert.ToInt32(dr["IDCategoria"]);
+                    cat.Descricao = Convert.ToString(dr["DescCategoria"]);
 
+                    
+                    produto.Categoria = cat;
                     Console.WriteLine(produto.ToString());
                 }
             }
         }
+
+        
     }
 }
 

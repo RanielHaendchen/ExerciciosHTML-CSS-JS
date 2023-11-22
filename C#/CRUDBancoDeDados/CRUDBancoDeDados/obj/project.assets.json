@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\raniel.silva\\source\\repos\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
+      "projectUniqueName": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
       "projectName": "CRUDBancoDeDados",
-      "projectPath": "C:\\Users\\raniel.silva\\source\\repos\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
+      "projectPath": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\CRUDBancoDeDados\\CRUDBancoDeDados\\CRUDBancoDeDados.csproj",
       "packagesPath": "C:\\Users\\raniel.silva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\raniel.silva\\source\\repos\\CRUDBancoDeDados\\CRUDBancoDeDados\\obj\\",
+      "outputPath": "C:\\Users\\raniel.silva\\Desktop\\ExerciciosHTML-CSS-JS\\C#\\CRUDBancoDeDados\\CRUDBancoDeDados\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\raniel.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",

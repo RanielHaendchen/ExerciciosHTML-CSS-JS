@@ -11,12 +11,14 @@ namespace CRUDBancoDeDados.DAO
 {
     internal class DaoCategorias
     {
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+
         public bool salvar(Categoria categoria)
         {
             using (SqlConnection con = new SqlConnection())
             {
                 /*Criando conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;"; ;
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*Monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -25,7 +27,7 @@ namespace CRUDBancoDeDados.DAO
 
                 /*Envia os dados a serem gravados*/
                 cn.Parameters.Add("descricao", System.Data.SqlDbType.VarChar).Value = categoria.Descricao;
-               
+
 
                 /**Abrir a conexão*/
                 cn.Connection = con;
@@ -64,5 +66,46 @@ namespace CRUDBancoDeDados.DAO
                 }
             }
         }
+
+        public void atualizar(Categoria categoria)
+
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.Open();
+
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+                cn.CommandText = $"UPDATE Categorias SET descricao = @descricao WHERE Id = @Id;";
+
+                cn.Parameters.Add("@descricao", System.Data.SqlDbType.NVarChar).Value = categoria.Descricao;
+                cn.Parameters.Add("@Id", System.Data.SqlDbType.VarChar).Value = categoria.Id;
+
+                cn.Connection = con; cn.ExecuteNonQuery();
+            }
+
+        }
+
+        public void deletar(Categoria categoria)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.Open();
+
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+                cn.CommandText = $"DELETE from Categorias WHERE Id = @Id";
+
+                cn.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = categoria.Id;
+
+                
+
+                cn.Connection = con;
+                cn.ExecuteNonQuery();
+
+            }
+        }
     }
-} 
+}
