@@ -16,7 +16,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*Criando conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*Monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -44,7 +44,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*criado conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -72,14 +72,58 @@ namespace CRUDBancoDeDados.DAO
                     cat.Id = Convert.ToInt32(dr["IDCategoria"]);
                     cat.Descricao = Convert.ToString(dr["DescCategoria"]);
 
-                    
+
                     produto.Categoria = cat;
                     Console.WriteLine(produto.ToString());
                 }
             }
         }
+        public void atualizar(Produto produto)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.Open();
 
-        
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+                cn.CommandText = $"UPDATE Produto SET nome = @nome, valor = @valor, estoque = @estoque, IDCategoria = @IDCategoria WHERE Id = @Id;";
+
+                cn.Parameters.Add("@nome", System.Data.SqlDbType.VarChar).Value = produto.Nome;
+                cn.Parameters.Add("@valor", System.Data.SqlDbType.Int).Value = produto.Valor;
+                cn.Parameters.Add("estoque", System.Data.SqlDbType.Int).Value = produto.Estoque;
+                cn.Parameters.Add("IDCategoria", System.Data.SqlDbType.Int).Value = produto.IDCategoria;
+                cn.Parameters.Add("@Id", System.Data.SqlDbType.VarChar).Value = produto.Id;
+
+
+
+                cn.Connection = con; 
+                cn.ExecuteNonQuery();
+            }
+
+
+        }
+        public void deletar(Produto produto)
+        {      
+                using (SqlConnection con = new SqlConnection())
+                {
+                    con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                    con.Open();
+
+                    SqlCommand cn = new SqlCommand();
+                    cn.CommandType = CommandType.Text;
+                    cn.CommandText = $"DELETE from Produto WHERE Id = @Id";
+
+                    cn.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = produto.Id;
+
+
+
+                    cn.Connection = con;
+                    cn.ExecuteNonQuery();
+
+                }
+            
+        }
     }
 }
 

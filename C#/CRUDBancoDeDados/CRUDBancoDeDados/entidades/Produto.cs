@@ -20,9 +20,9 @@ namespace CRUDBancoDeDados.entidades
 
         public Produto() { }  
 
-        public Produto(string nome, int valor, int estoque, int iDCategoria)
+        public Produto(int id, string nome, int valor, int estoque, int iDCategoria)
         {
-            
+            Id = id;    
             Nome = nome;
             Valor = valor;
             Estoque = estoque;
