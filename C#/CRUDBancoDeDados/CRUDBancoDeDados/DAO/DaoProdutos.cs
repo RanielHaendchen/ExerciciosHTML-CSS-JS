@@ -16,7 +16,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*Criando conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*Monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -44,7 +44,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*criado conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();

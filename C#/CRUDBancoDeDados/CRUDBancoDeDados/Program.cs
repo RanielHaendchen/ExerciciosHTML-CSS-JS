@@ -9,6 +9,7 @@ namespace CRUDBancoDeDados
         {
             DaoCategorias daoCat = new DaoCategorias();
             Categoria cat = new Categoria();
+            DaoProdutos daoProd = new DaoProdutos();
 
 
             while (true)
@@ -98,7 +99,16 @@ namespace CRUDBancoDeDados
                             switch (escolha)
                             {
                                 case 1:
-
+                                    Produto pr = new Produto();
+                                    Console.WriteLine("Digite o nome do produto:");                                  
+                                    pr.Nome = Console.ReadLine();
+                                    Console.WriteLine("Digite o valor do produto: ");
+                                    pr.Valor = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine("Digite o estoque do produto: ");
+                                    pr.Estoque = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine("Digite ID da Categoria");
+                                    pr.IDCategoria = Convert.ToInt32(Console.ReadLine());
+                                    daoProd.salvar(pr);
                                     break;
 
 
