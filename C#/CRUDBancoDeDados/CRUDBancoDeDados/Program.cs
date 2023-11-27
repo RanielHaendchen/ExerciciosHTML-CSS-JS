@@ -92,9 +92,10 @@ namespace CRUDBancoDeDados
                             Console.WriteLine("Menu Produto:");
                             Console.WriteLine("1- Adicionar Produto");
                             Console.WriteLine("2- Consultar Produto");
-                            Console.WriteLine("3- Atualizar Produto");
-                            Console.WriteLine("4- Deletar Produto");
-                            Console.WriteLine("5- Voltar");
+                            Console.WriteLine("3- Consultar produto por categoria");
+                            Console.WriteLine("4- Atualizar Produto");
+                            Console.WriteLine("5- Deletar Produto");
+                            Console.WriteLine("6- Voltar");
 
                             int escolha = int.Parse(Console.ReadLine());
 
@@ -118,6 +119,19 @@ namespace CRUDBancoDeDados
                                     break;
 
                                 case 3:
+                                    Console.WriteLine("Digite o nome da categoria:");
+                                    string nomeCategoria = Console.ReadLine();
+
+                                    List<Produto> produtosDaCategoria = daoProd.ConsultarProdutoPorCategoria(nomeCategoria);
+
+                                    foreach (Produto produto in produtosDaCategoria)
+                                    {
+                                        Console.WriteLine(produto.ToString());
+                                    }
+                                    break;
+
+
+                                case 4:
                                     Console.WriteLine("Digite o ID do produto para mudar:");
                                     int id2 = int.Parse(Console.ReadLine());
                                     Console.WriteLine("Novo nome do produto: ");
@@ -134,13 +148,13 @@ namespace CRUDBancoDeDados
                                     daoProd.atualizar(produto2);
                                     break;
 
-                                case 4:
+                                case 5:
                                     Console.WriteLine("Digite a ID que você quer deletar: ");
                                     pr.Id = Convert.ToInt32(Console.ReadLine());
                                     daoProd.deletar(pr);
                                     Console.WriteLine("Produto deletado com sucesso!");
                                     break;
-                                case 5:
+                                case 6:
                                     voltar2 = true;
                                     break;
                                 default:

@@ -16,7 +16,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*Criando conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*Monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -44,7 +44,7 @@ namespace CRUDBancoDeDados.DAO
             using (SqlConnection con = new SqlConnection())
             {
                 /*criado conexão com database*/
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
                 /*monta comando DML a ser enviado para o database*/
                 SqlCommand cn = new SqlCommand();
@@ -82,7 +82,7 @@ namespace CRUDBancoDeDados.DAO
         {
             using (SqlConnection con = new SqlConnection())
             {
-                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
                 con.Open();
 
                 SqlCommand cn = new SqlCommand();
@@ -103,12 +103,54 @@ namespace CRUDBancoDeDados.DAO
 
 
         }
+
+        public List<Produto> ConsultarProdutoPorCategoria(string nomeCategoria)
+        {
+            List<Produto> produtos = new List<Produto>();
+
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT p.Id, p.Nome, p.Valor, p.Estoque, p.IDCategoria, c.Descricao AS DescCategoria " +
+                                  "FROM Produto p INNER JOIN Categorias c ON p.IDCategoria = c.Id " +
+                                  "WHERE c.Descricao = @NomeCategoria";
+
+                cmd.Parameters.Add("@NomeCategoria", SqlDbType.NVarChar).Value = nomeCategoria;
+                cmd.Connection = con;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Produto produto = new Produto();
+                    produto.Id = Convert.ToInt32(dr["Id"]);
+                    produto.Nome = Convert.ToString(dr["Nome"]);
+                    produto.Valor = Convert.ToInt32(dr["Valor"]); 
+                    produto.Estoque = Convert.ToInt32(dr["Estoque"]);
+                    produto.IDCategoria = Convert.ToInt32(dr["IDCategoria"]);
+
+                    Categoria cat = new Categoria();
+                    cat.Id = Convert.ToInt32(dr["IDCategoria"]);
+                    cat.Descricao = Convert.ToString(dr["DescCategoria"]);
+
+                    produto.Categoria = cat;
+                    produtos.Add(produto);
+                }
+            }
+
+            return produtos;
+        }
+
         public void deletar(Produto produto)
         {      
                 using (SqlConnection con = new SqlConnection())
                 {
-                    con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=bd_CategoriasProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
-                    con.Open();
+                con.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=db_CategoriaProdutos;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+                con.Open();
 
                     SqlCommand cn = new SqlCommand();
                     cn.CommandType = CommandType.Text;
