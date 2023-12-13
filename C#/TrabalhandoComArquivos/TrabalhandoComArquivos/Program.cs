@@ -6,20 +6,61 @@ namespace TrabalhandoComArquivos
 {
     internal class Program
     {
-        static string path = @"C:\Users\raniel.silva\Desktop\LugarParaColocarArquivoC\produto.txt";
+        static string path = @"C:\Users\Raniel\Desktop\lugarparacolocar\arquivo.txt";
 
         static void Main(string[] args)
         {
-            crudProduto();
-            Console.WriteLine("Hello, World!");
+            List<Produto> listaProdutos = CarregarProdutosDoArquivo();
+            crudProduto(listaProdutos); 
         }
 
-        static void crudProduto()
+        static List<Produto> CarregarProdutosDoArquivo()
         {
-            List<Produto> listaProdutos = new List<Produto>();
+            List<Produto> produtos = new List<Produto>();
+
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string linha;
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        string[] partes = linha.Split(';');
+
+                        Produto produto = new Produto
+                        {
+                            Id = partes[0].Trim(),
+                            Descricao = partes[1].Trim(),
+                            Estoque = Convert.ToInt32(partes[2].Trim()),
+                            ValorUnitario = Convert.ToInt32(partes[3].Trim())
+                        };
+
+                        produtos.Add(produto);
+                    }
+                }
+            }
+
+            return produtos;
+        }
+
+        static void SalvarProdutosNoArquivo(List<Produto> produtos)
+        {
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                foreach (Produto produto in produtos)
+                {
+                    sw.WriteLine($"Id do produto: {produto.Id}");
+                    sw.WriteLine($"Descricao do produto: {produto.Descricao}");
+                    sw.WriteLine($"Estoque do produto: {produto.Estoque}");
+                    sw.WriteLine($"Valor do produto: {produto.ValorUnitario}");
+                }
+            }
+        }
+
+        static void crudProduto(List<Produto> listaProdutos)
+        {
             Produto produto = new Produto();
 
-            
             while (true)
             {
                 Console.WriteLine("Selecione:");
@@ -90,7 +131,7 @@ namespace TrabalhandoComArquivos
 
                         break;
                     case 3:
-                       /* Console.WriteLine("Digite o ID do produto: ");
+                        Console.WriteLine("Digite o ID do produto: ");
                         string buscaId = Console.ReadLine();
 
                         bool produtoEncontrado = false;
@@ -108,7 +149,7 @@ namespace TrabalhandoComArquivos
                         if (!produtoEncontrado)
                         {
                             Console.WriteLine("Produto não encontrado");
-                        }*/
+                        }
 
 
 

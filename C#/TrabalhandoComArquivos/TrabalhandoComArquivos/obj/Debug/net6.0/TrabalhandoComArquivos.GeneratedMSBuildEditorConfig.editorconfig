@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TrabalhandoComArquivos
-build_property.ProjectDir = C:\Users\raniel.silva\source\repos\TrabalhandoComArquivos\TrabalhandoComArquivos\
+build_property.ProjectDir = C:\Users\Raniel\Desktop\ExerciciosHTML-CSS-JS\C#\TrabalhandoComArquivos\TrabalhandoComArquivos\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
